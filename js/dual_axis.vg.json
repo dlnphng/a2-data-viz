@@ -1,0 +1,57 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/dlnphng/a2-data-viz/main/data/ExchangeRates.csv"
+    },
+    "layer": [
+      {
+        "mark": "line",
+        "encoding": {
+          "x": {
+            "timeUnit": "yearmonth",
+            "field": "Time",
+            "type": "temporal",
+            "title": "Time"
+          },
+          "y": {
+            "field": "Export Volume",
+            "type": "quantitative",
+            "title": "Export Volume",
+            "axis": {
+              "grid": false,
+              "titleColor": "blue"
+            }
+          },
+          "color": {"value": "blue"}
+        }
+      },
+      {
+        "mark": "line",
+        "encoding": {
+          "x": {
+            "timeUnit": "yearmonth",
+            "field": "Time",
+            "type": "temporal",
+            "title": "Time"
+          },
+          "y": {
+            "field": "Exchange rates",
+            "type": "quantitative",
+            "title": "Exchange Rates",
+            "axis": {
+              "grid": false,
+              "titleColor": "green",
+              "orient": "right"
+            }
+          },
+          "color": {"value": "green"}
+        }
+      }
+    ],
+    "resolve": {
+      "scale": {
+        "y": "independent"
+      }
+    }
+  }
+  
