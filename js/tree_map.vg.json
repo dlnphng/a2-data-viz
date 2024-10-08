@@ -1,0 +1,17 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/dlnphng/a2-data-viz/main/data/Energy_Consumption.csv"
+    },
+    "transform": [
+      {
+        "filter": {"field": "Period", "equal": "2013-14"}  
+      }
+    ],
+    "mark": "arc",
+    "encoding": {
+      "theta": {"field": "Value", "type": "quantitative"},
+      "color": {"field": "Industry", "type": "nominal"}
+    }
+  }
+  
