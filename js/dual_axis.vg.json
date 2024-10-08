@@ -1,11 +1,16 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 1150,
+    "height": 500,
     "data": {
       "url": "https://raw.githubusercontent.com/dlnphng/a2-data-viz/main/data/ExchangeRate.csv"
     },
     "layer": [
       {
-        "mark": "line",
+        "mark": {
+          "type": "line",
+          "strokeWidth": 3  
+        },
         "encoding": {
           "x": {
             "timeUnit": "yearmonth",
@@ -16,17 +21,33 @@
           "y": {
             "field": "Export Volume",
             "type": "quantitative",
-            "title": "Export Volume",
+            "title": "Export Volume ($ million)",
             "axis": {
               "grid": false,
               "titleColor": "blue"
             }
           },
-          "color": {"value": "blue"}
+          "color": {"value": "blue"},
+          "tooltip": [
+            {
+              "field": "Time",
+              "type": "temporal",
+              "title": "Period",
+              "format": "%Y-%m"
+            },
+            {
+              "field": "Export Volume",
+              "type": "quantitative",
+              "title": "Export Volume ($ million)"
+            }
+          ]
         }
       },
       {
-        "mark": "line",
+        "mark": {
+          "type": "line",
+          "strokeWidth": 3
+        },
         "encoding": {
           "x": {
             "timeUnit": "yearmonth",
@@ -40,11 +61,24 @@
             "title": "Exchange Rates",
             "axis": {
               "grid": false,
-              "titleColor": "green",
+              "titleColor": "orange",
               "orient": "right"
             }
           },
-          "color": {"value": "green"}
+          "color": {"value": "orange"},
+          "tooltip": [
+            {
+              "field": "Time",
+              "type": "temporal",
+              "title": "Time",
+              "format": "%Y-%m"
+            },
+            {
+              "field": "Exchange rates",
+              "type": "quantitative",
+              "title": "Exchange Rates"
+            }
+          ]
         }
       }
     ],
