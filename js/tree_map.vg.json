@@ -1,17 +1,27 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 500,
     "data": {
       "url": "https://raw.githubusercontent.com/dlnphng/a2-data-viz/main/data/Energy_Consumption.csv"
     },
     "transform": [
       {
-        "filter": {"field": "Period", "equal": "2013-14"}  
+        "calculate": "trim(datum.Period)", 
+        "as": "CleanPeriod"
+      },
+      {
+        "filter": {"field": "CleanPeriod", "equal": "2013-14"}
       }
     ],
-    "mark": "arc",
+    "mark": {"type": "arc", "innerRadius": 0}, 
     "encoding": {
       "theta": {"field": "Value", "type": "quantitative"},
-      "color": {"field": "Industry", "type": "nominal"}
+      "color": {"field": "Industry", "type": "nominal"},
+      "tooltip": [
+        {"field": "Industry", "type": "nominal"},
+        {"field": "Value", "type": "quantitative"}
+      ]
     }
   }
   
