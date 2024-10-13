@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 1150,
+    "width": 800,
     "height": 500,
     "data": {
       "url": "https://raw.githubusercontent.com/dlnphng/a2-data-viz/main/data/ExchangeRate.csv"

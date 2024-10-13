@@ -8,13 +8,16 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
     <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <div id="state_map"></div>
+
     <h1>Australia's Mineral Wealth: An Exploration of the Mining Industry</h1>
     <p>Over the past decade, Australia has solidified its place as a global leader in the mining industry. 
         This data journey explores its role, from dominating global exports to the regional distribution of its mineral wealth, 
-        and the impact of external factors like currency exchange rates.</p>
+        and the impact of external factors.</p>
     
     <div id="map">
         <h2>Australia: A Global Leader in Mining Exports</h2>
@@ -41,14 +44,14 @@
     <h2>The Impact of Mining on Australia’s Energy Consumption</h2>
     <p>Australia’s mining sector doesn’t just affect Exchange Rate—it’s also one of the largest consumers of energy. 
         This pie chart shows the distribution of energy consumption across industries, with mining standing out as a significant user. </p>
-    <div id="energy"></div>
+    <!-- <div id="energy"></div> -->
 
     <p>Australia’s mining sector has maintained its stronghold on the global stage, while its exports continue to play a key role in shaping the country's economic landscape. 
         By driving exports, strengthening regional contributions, and influencing favorable exchange rates, Australia remains a crucial player in global mining and economic stability.</p>
 
     <script type="text/javascript">
         var spec1 = "js/symbol_map.vg.json";
-        vegaEmbed('#style', spec1).then(function (result) {
+        vegaEmbed('#style', spec1, {renderer: "svg", actions: false}).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
 
@@ -64,6 +67,11 @@
 
         var spec4 = "js/tree_map.vg.json";
         vegaEmbed('#energy', spec4).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec5 = "js/state_map.vg.json";
+        vegaEmbed('#state_map', spec5).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     </script>
