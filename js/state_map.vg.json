@@ -11,41 +11,27 @@
   },
   "params": [
     {
-      "name": "center_to",
-      "value": [134.8505, -28.5183],
+      "name": "regionFilter",
+      "value": "All",
       "bind": {
         "input": "select",
         "options": [
-          [134.8505, -28.5183],
-          [146.9150, -32.7357],
-          [144.9631, -37.8136],
-          [147.6204, -20.9176],
-          [134.4910, -30.0002],
-          [121.6283, -25.3444],
-          [146.3159, -42.0457],
-          [133.7751, -19.4914],
-          [149.1244, -35.3081]
+          "All", "NSW", "VIC", "QLD", "SA", "WA", "TAS", "Northern Territory"
         ],
-        "labels": [
-          "Australia",
-          "New South Wales",
-          "Victoria",
-          "Queensland",
-          "South Australia",
-          "Western Australia",
-          "Tasmania",
-          "Northern Territory",
-          "Australian Capital Territory"
-        ],
-        "name": "Map Centre: "
+        "name": "Filter by Region: "
       }
+    },
+    {
+      "name": "center_to",
+      "value": [134.8505, -28.5183],
+      "expr": "regionFilter === 'All' ? [134.8505, -28.5183] : regionFilter === 'NSW' ? [146.9150, -32.7357] : regionFilter === 'VIC' ? [144.9631, -37.8136] : regionFilter === 'QLD' ? [147.6204, -20.9176] : regionFilter === 'SA' ? [134.4910, -30.0002] : regionFilter === 'WA' ? [121.6283, -25.3444] : regionFilter === 'TAS' ? [146.3159, -42.0457] : [133.7751, -19.4914]"
     }
   ],
   "projection": {
     "type": "mercator",
     "center": {"expr": "center_to"},
     "scale": {
-      "expr": "center_to[0] === 134.8505 && center_to[1] === -28.5183 ? 550 : 1000"
+      "expr": "regionFilter === 'All' ? 550 : 1000"
     }
   },
   "layer": [
@@ -61,7 +47,7 @@
       "encoding": {
         "color": {
           "condition": {
-            "test": "datum.properties.STATE_NAME == 'New South Wales' && center_to[0] == 146.9150 && center_to[1] == -32.7357 || datum.properties.STATE_NAME == 'Victoria' && center_to[0] == 144.9631 && center_to[1] == -37.8136 || datum.properties.STATE_NAME == 'Queensland' && center_to[0] == 147.6204 && center_to[1] == -20.9176 || datum.properties.STATE_NAME == 'South Australia' && center_to[0] == 134.4910 && center_to[1] == -30.0002 || datum.properties.STATE_NAME == 'Western Australia' && center_to[0] == 121.6283 && center_to[1] == -25.3444 || datum.properties.STATE_NAME == 'Tasmania' && center_to[0] == 146.3159 && center_to[1] == -42.0457 || datum.properties.STATE_NAME == 'Northern Territory' && center_to[0] == 133.7751 && center_to[1] == -19.4914 || datum.properties.STATE_NAME == 'Australian Capital Territory' && center_to[0] == 149.1244 && center_to[1] == -35.3081",
+            "test": "regionFilter !== 'All' && datum.properties.STATE_NAME === regionFilter",
             "value": "lightgray"
           },
           "value": "white"

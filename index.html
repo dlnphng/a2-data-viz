@@ -16,7 +16,19 @@
     <div id="export-domestic"></div>
     <div id="state_map"></div>
     <div id="state"></div>
-    
+
+    <!-- Filter Dropdown -->
+    <label for="regionFilter">Filter by Region:</label>
+    <select id="regionFilter">
+        <option value="All">All</option>
+        <option value="NSW">NSW</option>
+        <option value="VIC">VIC</option>
+        <option value="QLD">QLD</option>
+        <option value="SA">SA</option>
+        <option value="WA">WA</option>
+        <option value="TAS">TAS</option>
+        <option value="Northern Territory">Northern Territory</option>
+    </select>
 
     <h1>Australia's Mineral Wealth: An Exploration of the Mining Industry</h1>
     <p>Over the past decade, Australia has solidified its place as a global leader in the mining industry. 
@@ -74,10 +86,10 @@
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
 
-        var spec5 = "js/state_map.vg.json";
-        vegaEmbed('#state_map', spec5).then(function (result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
+        // var spec5 = "js/state_map.vg.json";
+        // vegaEmbed('#state_map', spec5).then(function (result) {
+        //     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        // }).catch(console.error);
 
         var spec6 = "js/top_country.vg.json";
         vegaEmbed('#top_country', spec6).then(function (result) {
@@ -89,10 +101,36 @@
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
 
-        var spec8 = "js/state.vg.json";
-        vegaEmbed('#state', spec8).then(function (result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
+        // var spec8 = "js/state.vg.json";
+        // vegaEmbed('#state', spec8).then(function (result) {
+        //     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        // }).catch(console.error);
+
+            // Function to update both Vega charts
+        function updateVegaWithFilter(filterValue) {
+            const specStateMap = "js/state_map.vg.json";
+            const specState = "js/state.vg.json";
+
+            // Load state map visualization and apply filter
+            vegaEmbed('#state_map', specStateMap, { renderer: "svg" }).then(function(result) {
+                result.view.signal("regionFilter", filterValue).run();
+            }).catch(console.error);
+
+            // Load state visualization and apply filter
+            vegaEmbed('#state', specState, { renderer: "svg" }).then(function(result) {
+                result.view.signal("regionFilter", filterValue).run();
+            }).catch(console.error);
+        }
+
+        // Add event listener to dropdown
+        document.getElementById('regionFilter').addEventListener('change', function(event) {
+            const selectedRegion = event.target.value;
+            updateVegaWithFilter(selectedRegion);
+        });
+
+        // Initial load of both charts with 'All' selected by default
+        updateVegaWithFilter('All');
+    
     </script>
 
 </body>

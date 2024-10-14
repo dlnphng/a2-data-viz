@@ -39,8 +39,21 @@
       {
         "mark": {"type": "circle", "filled": true, "size": 200},
         "encoding": {
-          "x": {"field": "State", "type": "nominal"},
-          "y": {"field": "Total", "type": "quantitative"},
+          "x": {
+            "field": "State",
+            "type": "nominal",
+            "axis": {
+              "labelAngle": 0,
+              "labelAlign": "center"
+            }
+          },
+          "y": {
+            "field": "Total",
+            "type": "quantitative",
+            "axis": {
+              "title": "Exploration Amount ($ million)"  
+            }
+          },
           "color": {
             "field": "Year",
             "type": "nominal",
@@ -52,7 +65,7 @@
           },
           "tooltip": [
             {"field": "State", "type": "nominal", "title": "Region"},
-            {"field": "Total", "type": "quantitative", "title": "Total Deposits"},
+            {"field": "Total", "type": "quantitative", "title": "Exploration Amount ($ million)"},
             {"field": "Year", "type": "ordinal", "title": "Year"}
           ]
         }
