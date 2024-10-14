@@ -1,18 +1,24 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 600,
-    "height": 300,
+    "height": 400,
     "data": {
-        "url": "https://raw.githubusercontent.com/dlnphng/a2-data-viz/main/data/top5.csv",
-        "format": {
-          "type": "csv"
-        }
+      "url": "https://raw.githubusercontent.com/dlnphng/a2-data-viz/main/data/top5.csv",
+      "format": {
+        "type": "csv"
+      }
     },
+    "transform": [
+      {
+        "calculate": "toNumber(datum.Total)",
+        "as": "Total"
+      }
+    ],
     "layer": [
       {
         "mark": {
           "type": "rule",
-          "strokeWidth": 15,
+          "strokeWidth": 30,
           "tooltip": true
         },
         "encoding": {
@@ -41,7 +47,7 @@
         }
       },
       {
-        "mark": {"type": "image", "width": 20, "height": 20, "align": "center", "baseline": "middle"},
+        "mark": {"type": "image", "width": 30, "height": 30, "align": "center", "baseline": "middle"},
         "encoding": {
           "x": {
             "field": "Total",

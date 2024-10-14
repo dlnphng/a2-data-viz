@@ -1,0 +1,70 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 400,
+    "data": {
+        "url": "https://raw.githubusercontent.com/dlnphng/a2-data-viz/main/data/export-domestic.csv",  
+        "format": {
+          "type": "csv"
+        }
+      },
+    "params": [
+      {
+        "name": "typeFilter",
+        "value": "All",  
+        "bind": {
+          "input": "select",
+          "options": ["All", "Domestic consumption", "Total export"],
+          "labels": ["All", "Domestic", "Export"],
+          "name": "Filter by Type: "
+        }
+      }
+    ],
+    "transform": [
+      {
+        "filter": "typeFilter === 'All' || datum.Type === typeFilter"
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "axis": {
+          "title": "Year",
+          "labelAngle": 0  
+        },
+        "scale": {
+          "domain": [2013,2014,2015,2016,2017,2018, 2019, 2020, 2021, 2022],
+          "padding": 0
+        }
+      },
+      "y": {
+        "field": "Value",
+        "type": "quantitative",
+        "axis": {"title": "Value"}
+      },
+      "color": {
+        "field": "Type",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Domestic consumption", "Total export"],
+          "range": ["#808080", "#FF6347"] 
+        },
+        "legend": {"title": "Type"}
+      },
+      "tooltip": [
+        {"field": "Year", "type": "ordinal", "title": "Year"},
+        {"field": "Type", "type": "nominal", "title": "Type"},
+        {"field": "Value", "type": "quantitative", "title": "Value"}
+      ],
+      "order": {
+        "field": "Type",
+        "type": "nominal",
+        "sort": "descending"
+      }
+    },
+    "mark": {
+      "type": "area"
+    }
+  }
+  

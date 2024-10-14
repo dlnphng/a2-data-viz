@@ -14,6 +14,7 @@
 <body>
     <div id="top_country"></div>
     <div id="state_map"></div>
+    <div id="export-domestic"></div>
 
     <h1>Australia's Mineral Wealth: An Exploration of the Mining Industry</h1>
     <p>Over the past decade, Australia has solidified its place as a global leader in the mining industry. 
@@ -78,6 +79,11 @@
 
         var spec6 = "js/top_country.vg.json";
         vegaEmbed('#top_country', spec6).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec7 = "js/export-domestic.vg.json";
+        vegaEmbed('#export-domestic', spec7).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     </script>
