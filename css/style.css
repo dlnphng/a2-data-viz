@@ -24,8 +24,9 @@ p{
 	font-size: 20px;
 }
 
-#style, #styling, #dual {
+#style, #styling, #dual, #state_map {
 	width: 100%;
     display: block;
     justify-content: center;
+	font-family: 'Outfit', sans-serif;
 }

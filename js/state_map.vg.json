@@ -1,115 +1,122 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 800,
-    "height": 400,
-    "background": "#f4f4f4",
-    "title": {
-      "text": "Total Values by State in Australia",
-      "anchor": "middle",
-      "dy": -10,
-      "font": "sans-serif"
-    },
-    "params": [
-      {
-        "name": "center_to",
-        "value": [134.8505, -28.5183],
-        "bind": {
-          "input": "select",
-          "options": [
-            [134.8505, -28.5183],
-            [146.9150, -32.7357],
-            [144.9631, -37.8136],
-            [147.6204, -20.9176],
-            [134.4910, -30.0002],
-            [121.6283, -25.3444],
-            [146.3159, -42.0457],
-            [133.7751, -19.4914],
-            [149.1244, -35.3081]
-          ],
-          "labels": [
-            "Australia",
-            "New South Wales",
-            "Victoria",
-            "Queensland",
-            "South Australia",
-            "Western Australia",
-            "Tasmania",
-            "Northern Territory",
-            "Australian Capital Territory"
-          ],
-          "name": "Map Centre: "
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 400,
+  "background": "#f4f4f4",
+  "title": {
+    "text": "Total Values by State in Australia",
+    "anchor": "middle",
+    "dy": -10,
+    "font": "Outfit"
+  },
+  "params": [
+    {
+      "name": "center_to",
+      "value": [134.8505, -28.5183],
+      "bind": {
+        "input": "select",
+        "options": [
+          [134.8505, -28.5183],
+          [146.9150, -32.7357],
+          [144.9631, -37.8136],
+          [147.6204, -20.9176],
+          [134.4910, -30.0002],
+          [121.6283, -25.3444],
+          [146.3159, -42.0457],
+          [133.7751, -19.4914],
+          [149.1244, -35.3081]
+        ],
+        "labels": [
+          "Australia",
+          "New South Wales",
+          "Victoria",
+          "Queensland",
+          "South Australia",
+          "Western Australia",
+          "Tasmania",
+          "Northern Territory",
+          "Australian Capital Territory"
+        ],
+        "name": "Map Centre: "
       }
-    ],
-    "projection": {
-      "type": "mercator",
-      "center": {"expr": "center_to"},
-      "scale": {
-        "expr": "center_to[0] === 134.8505 && center_to[1] === -28.5183 ? 550 : 1000"
-      }
-    },
-    "layer": [
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/dlnphng/a2-data-viz/main/js/aus_state.topojson",
-          "format": { "type": "topojson", "feature": "collection" }
-        },
-        "mark": {
-          "type": "geoshape",
-          "fill": "white",
-          "stroke": "black"
-        }
+    }
+  ],
+  "projection": {
+    "type": "mercator",
+    "center": {"expr": "center_to"},
+    "scale": {
+      "expr": "center_to[0] === 134.8505 && center_to[1] === -28.5183 ? 550 : 1000"
+    }
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/dlnphng/a2-data-viz/main/js/aus_state.topojson",
+        "format": { "type": "topojson", "feature": "collection" }
       },
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/dlnphng/a2-data-viz/main/data/state.csv"
-        },
-        "layer": [
-          {
-            "mark": {
-              "type": "circle",
-              "color": "red",
-              "opacity": 0.7,
-              "tooltip": {"content": "data"}
-            },
-            "encoding": {
-              "longitude": { "field": "Longitude", "type": "quantitative" },
-              "latitude": { "field": "Latitude", "type": "quantitative" },
-              "size": {
-                "field": "Total",
-                "type": "quantitative",
-                "scale": { "range": [100, 10000] },
-                "legend": {
-                  "title": "Total Value",
-                  "orient": "right"
-                }
-              },
-              "tooltip": [
-                { "field": "Region", "type": "nominal", "title": "State" },
-                { "field": "Total", "type": "quantitative", "title": "Total Value" }
-              ]
-            }
+      "mark": {
+        "type": "geoshape",
+        "stroke": "black"
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "datum.properties.STATE_NAME == 'New South Wales' && center_to[0] == 146.9150 && center_to[1] == -32.7357 || datum.properties.STATE_NAME == 'Victoria' && center_to[0] == 144.9631 && center_to[1] == -37.8136 || datum.properties.STATE_NAME == 'Queensland' && center_to[0] == 147.6204 && center_to[1] == -20.9176 || datum.properties.STATE_NAME == 'South Australia' && center_to[0] == 134.4910 && center_to[1] == -30.0002 || datum.properties.STATE_NAME == 'Western Australia' && center_to[0] == 121.6283 && center_to[1] == -25.3444 || datum.properties.STATE_NAME == 'Tasmania' && center_to[0] == 146.3159 && center_to[1] == -42.0457 || datum.properties.STATE_NAME == 'Northern Territory' && center_to[0] == 133.7751 && center_to[1] == -19.4914 || datum.properties.STATE_NAME == 'Australian Capital Territory' && center_to[0] == 149.1244 && center_to[1] == -35.3081",
+            "value": "lightgray"
           },
-          {
-            "mark": {
-              "type": "text",
-              "font": "sans-serif",
-              "fontSize": 12,
-              "align": "center"
-            },
-            "encoding": {
-              "longitude": { "field": "Longitude", "type": "quantitative" },
-              "latitude": { "field": "Latitude", "type": "quantitative" },
-              "text": { "field": "Region", "type": "nominal" },
-              "tooltip": [
-                { "field": "Region", "type": "nominal", "title": "State" },
-                { "field": "Total", "type": "quantitative", "title": "Total Value" }
-              ]
-            }
-          }
-        ]
+          "value": "white"
+        }
       }
-    ],
-    "view": { "stroke": null }
-  }
-  
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/dlnphng/a2-data-viz/main/data/state.csv"
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "circle",
+            "color": "red",
+            "opacity": 0.7,
+            "tooltip": {"content": "data"}
+          },
+          "encoding": {
+            "longitude": { "field": "Longitude", "type": "quantitative" },
+            "latitude": { "field": "Latitude", "type": "quantitative" },
+            "size": {
+              "field": "Total",
+              "type": "quantitative",
+              "scale": { "range": [100, 10000] },
+              "legend": {
+                "title": "Total Value",
+                "orient": "right"
+              }
+            },
+            "tooltip": [
+              { "field": "Region", "type": "nominal", "title": "State" },
+              { "field": "Total", "type": "quantitative", "title": "Total Value" }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "font": "sans-serif",
+            "fontSize": 12,
+            "align": "center"
+          },
+          "encoding": {
+            "longitude": { "field": "Longitude", "type": "quantitative" },
+            "latitude": { "field": "Latitude", "type": "quantitative" },
+            "text": { "field": "Region", "type": "nominal" },
+            "tooltip": [
+              { "field": "Region", "type": "nominal", "title": "State" },
+              { "field": "Total", "type": "quantitative", "title": "Total Value" }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "view": { "stroke": null }
+}
