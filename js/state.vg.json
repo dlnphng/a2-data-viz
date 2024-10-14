@@ -3,51 +3,55 @@
     "width": 600,
     "height": 400,
     "data": {
-      "url": "https://raw.githubusercontent.com/dlnphng/a2-data-viz/main/data/filtered_data.csv", 
+      "url": "https://raw.githubusercontent.com/dlnphng/a2-data-viz/main/data/filtered_data.csv",
       "format": {"type": "csv"}
     },
-    "transform": [
-      {"filter": "datum.Year == 2013 || datum.Year == 2017 || datum.Year == 2019 || datum.Year == 2022"}  
-    ],
-    "encoding": {
-      "x": {
-        "field": "Year",
-        "type": "ordinal",
-        "axis": {"title": "Year"}
-      },
-      "y": {
-        "field": "Total",
-        "type": "quantitative",
-        "axis": {"title": "Total Deposits"}
-      },
-      "color": {
-        "field": "State",
-        "type": "nominal",
-        "legend": {"title": "Region"}
-      },
-      "detail": {
-        "field": "State",
-        "type": "nominal"
+    "params": [
+      {
+        "name": "regionFilter",
+        "value": "All",
+        "bind": {
+          "input": "select",
+          "options": ["All", "NSW", "VIC", "QLD", "SA", "WA", "TAS", "Northen Territory"],
+          "labels": ["All", "NSW", "VIC", "QLD", "SA", "WA", "TAS", "Northern Territory"],
+          "name": "Filter by Region: "
+        }
       }
-    },
+    ],
+    "transform": [
+      {
+        "filter": "regionFilter === 'All' || datum.State === regionFilter"
+      },
+      {"filter": "datum.Year == 2013 || datum.Year == 2017 || datum.Year == 2022"}
+    ],
     "layer": [
       {
-        "mark": {"type": "line"},
+        "mark": {
+          "type": "rule", 
+          "color": "black"
+        },
         "encoding": {
-          "tooltip": [
-            {"field": "State", "type": "nominal", "title": "State"},
-            {"field": "Total", "type": "quantitative", "title": "Total Deposits"},
-            {"field": "Year", "type": "ordinal", "title": "Year"}
-          ]
+          "x": {"field": "State", "type": "nominal"},
+          "y": {"field": "Total", "aggregate": "min", "type": "quantitative"},
+          "y2": {"field": "Total", "aggregate": "max"}
         }
       },
       {
-        "mark": {"type": "circle", "size": 100},
+        "mark": {"type": "circle", "filled": true, "size": 200},
         "encoding": {
-          "x": {"field": "Year", "type": "ordinal"},
+          "x": {"field": "State", "type": "nominal"},
           "y": {"field": "Total", "type": "quantitative"},
+          "color": {
+            "field": "Year",
+            "type": "nominal",
+            "scale": {
+              "domain": [2022, 2017, 2013],
+              "range": ["darkred", "lightcoral", "lightgrey"]
+            },
+            "legend": {"title": "Year"}
+          },
           "tooltip": [
-            {"field": "State", "type": "nominal", "title": "State"},
+            {"field": "State", "type": "nominal", "title": "Region"},
             {"field": "Total", "type": "quantitative", "title": "Total Deposits"},
             {"field": "Year", "type": "ordinal", "title": "Year"}
           ]
