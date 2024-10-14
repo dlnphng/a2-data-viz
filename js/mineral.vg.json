@@ -29,7 +29,7 @@
       {
         "name": "size",
         "domain": {"data": "table", "field": "amount"},
-        "range": [0, 50000]
+        "range": [500, 50000]
       },
       {
         "name": "color",
