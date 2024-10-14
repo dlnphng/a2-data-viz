@@ -1,0 +1,54 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 600,
+    "data": {
+      "url": "https://raw.githubusercontent.com/dlnphng/a2-data-viz/main/data/minerals.csv",
+      "format": {
+        "type": "csv"
+      }
+    },
+    "mark": {
+      "type": "circle",
+      "tooltip": true
+    },
+    "encoding": {
+      "x": {
+        "field": "Type",
+        "type": "nominal",
+        "axis": null
+      },
+      "y": {
+        "field": "Value",
+        "type": "quantitative",
+        "axis": null
+      },
+      "size": {
+        "field": "Value",
+        "type": "quantitative",
+        "scale": {
+          "range": [100, 2000]
+        },
+        "legend": {
+          "title": "Mineral Value"
+        }
+      },
+      "color": {
+        "field": "Type",
+        "type": "nominal",
+        "legend": {
+          "title": "Mineral Type"
+        }
+      },
+      "tooltip": [
+        {"field": "Type", "type": "nominal", "title": "Mineral Type"},
+        {"field": "Value", "type": "quantitative", "title": "Value"}
+      ]
+    },
+    "config": {
+      "view": {
+        "stroke": null
+      }
+    }
+  }
+  

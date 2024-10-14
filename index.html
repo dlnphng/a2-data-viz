@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <div id="mineral"></div>
     <div id="top_country"></div>
     <div id="export-domestic"></div>
     <div id="state_map"></div>
@@ -105,6 +106,11 @@
         // vegaEmbed('#state', spec8).then(function (result) {
         //     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         // }).catch(console.error);
+
+        var spec9 = "js/mineral.vg.json";
+        vegaEmbed('#mineral', spec9).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
 
             // Function to update both Vega charts
         function updateVegaWithFilter(filterValue) {
