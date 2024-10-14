@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega/v5.json",
     "description": "A packed bubble chart for mineral exports with shades of yellow.",
-    "width": 800,
+    "width": 500,
     "height": 500,
     "padding": {"left": 5, "right": 5, "top": 20, "bottom": 0},
     "autosize": "none",
