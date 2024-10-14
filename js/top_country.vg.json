@@ -42,7 +42,8 @@
           },
           "tooltip": [
             {"field": "Country", "type": "nominal", "title": "Country"},
-            {"field": "Total", "type": "quantitative", "title": "Total Revenue (million $)"}
+            {"field": "Total", "type": "quantitative", "title": "Total Revenue (million $)"},
+            {"field": "Percentage", "type": "quantitative", "title": "% of Total Minerals Revenue"}
           ]
         }
       },
@@ -61,7 +62,8 @@
           "url": {"field": "Flag"},
           "tooltip": [
             {"field": "Country", "type": "nominal", "title": "Country"},
-            {"field": "Total", "type": "quantitative", "title": "Total Revenue (million $)"}
+            {"field": "Total", "type": "quantitative", "title": "Total Revenue (million $)"},
+            {"field": "Percentage", "type": "quantitative", "title": "% of Total Minerals Revenue"}
           ]
         }
       }
