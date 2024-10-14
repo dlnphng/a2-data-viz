@@ -25,7 +25,7 @@
           "x": {
             "field": "Total",
             "type": "quantitative",
-            "axis": {"title": "Total Value"}
+            "axis": {"title": "Total Revenue (million $)"}
           },
           "y": {
             "field": "Country",
@@ -42,7 +42,7 @@
           },
           "tooltip": [
             {"field": "Country", "type": "nominal", "title": "Country"},
-            {"field": "Total", "type": "quantitative", "title": "Total Value"}
+            {"field": "Total", "type": "quantitative", "title": "Total Revenue (million $)"}
           ]
         }
       },
@@ -61,7 +61,7 @@
           "url": {"field": "Flag"},
           "tooltip": [
             {"field": "Country", "type": "nominal", "title": "Country"},
-            {"field": "Total", "type": "quantitative", "title": "Total Value"}
+            {"field": "Total", "type": "quantitative", "title": "Total Revenue (million $)"}
           ]
         }
       }

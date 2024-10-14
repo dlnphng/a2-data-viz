@@ -1,0 +1,58 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 400,
+    "data": {
+      "url": "https://raw.githubusercontent.com/dlnphng/a2-data-viz/main/data/filtered_data.csv", 
+      "format": {"type": "csv"}
+    },
+    "transform": [
+      {"filter": "datum.Year == 2013 || datum.Year == 2017 || datum.Year == 2019 || datum.Year == 2022"}  
+    ],
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "axis": {"title": "Year"}
+      },
+      "y": {
+        "field": "Total",
+        "type": "quantitative",
+        "axis": {"title": "Total Deposits"}
+      },
+      "color": {
+        "field": "State",
+        "type": "nominal",
+        "legend": {"title": "Region"}
+      },
+      "detail": {
+        "field": "State",
+        "type": "nominal"
+      }
+    },
+    "layer": [
+      {
+        "mark": {"type": "line"},
+        "encoding": {
+          "tooltip": [
+            {"field": "State", "type": "nominal", "title": "State"},
+            {"field": "Total", "type": "quantitative", "title": "Total Deposits"},
+            {"field": "Year", "type": "ordinal", "title": "Year"}
+          ]
+        }
+      },
+      {
+        "mark": {"type": "circle", "size": 100},
+        "encoding": {
+          "x": {"field": "Year", "type": "ordinal"},
+          "y": {"field": "Total", "type": "quantitative"},
+          "tooltip": [
+            {"field": "State", "type": "nominal", "title": "State"},
+            {"field": "Total", "type": "quantitative", "title": "Total Deposits"},
+            {"field": "Year", "type": "ordinal", "title": "Year"}
+          ]
+        }
+      }
+    ]
+  }
+  
