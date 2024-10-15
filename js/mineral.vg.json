@@ -1,96 +1,110 @@
 {
-    "$schema": "https://vega.github.io/schema/vega/v5.json",
-    "description": "A packed bubble chart for mineral exports with shades of yellow.",
-    "width": 400,
-    "height": 350,
-    "padding": {"left": 30, "right": 20, "top": 0, "bottom": 0},
-    "autosize": "none",
-    "signals": [
-      {"name": "cx", "update": "width / 2"},
-      {"name": "cy", "update": "height / 2"},
-      {"name": "gravityX", "value": 0.2},
-      {"name": "gravityY", "value": 0.1}
-    ],
-    "data": [
-      {
-        "name": "table",
-        "url": "https://raw.githubusercontent.com/dlnphng/a2-data-viz/main/data/minerals.csv",
-        "format": {"type": "csv"},
-        "transform": [
-          {
-            "type": "formula",
-            "expr": "datum.Value",
-            "as": "amount"
-          }
-        ]
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "A packed bubble chart for mineral exports with shades of yellow.",
+  "width": 400,
+  "height": 350,
+  "padding": {"left": 30, "right": 20, "top": 0, "bottom": 0},
+  "autosize": "none",
+  "signals": [
+    {"name": "cx", "update": "width / 2"},
+    {"name": "cy", "update": "height / 2"},
+    {"name": "gravityX", "value": 0.2},
+    {"name": "gravityY", "value": 0.1},
+    {
+      "name": "year",
+      "value": 2020,
+      "bind": {
+        "input": "range",
+        "min": 2010,
+        "max": 2022,
+        "step": 1,
+        "name": "Year Filter"
       }
-    ],
-    "scales": [
-      {
-        "name": "size",
-        "domain": {"data": "table", "field": "amount"},
-        "range": [500, 25000]
-      },
-      {
-        "name": "color",
-        "type": "ordinal",
-        "domain": {"data": "table", "field": "Type"},
-        "range": ["#fff9b0", "#fff176", "#ffeb3b", "#fdd835", "#fbc02d", "#f9a825", "#f57f17", "#f57f17", "#f57f17", "#f57f17"] 
-      }
-    ],
-    "marks": [
-      {
-        "name": "nodes",
-        "type": "symbol",
-        "from": {"data": "table"},
-        "encode": {
-          "enter": {
-            "fill": {"scale": "color", "field": "Type"}, 
-            "xfocus": {"signal": "cx"},
-            "yfocus": {"signal": "cy"}
-          },
-          "update": {
-            "size": {"signal": "datum.amount", "scale": "size"},
-            "stroke": {"value": "white"},
-            "strokeWidth": {"value": 1},
-            "tooltip": {
-              "signal": "{'Type': datum.Type, 'Value': format(datum.amount, '.2f')}"
-            }
-          }
+    }
+  ],
+  "data": [
+    {
+      "name": "table",
+      "url": "https://raw.githubusercontent.com/dlnphng/a2-data-viz/main/data/minerals.csv",
+      "format": {"type": "csv"},
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "datum.Value",
+          "as": "amount"
         },
-        "transform": [
-          {
-            "type": "force",
-            "iterations": 100,
-            "static": false,
-            "forces": [
-              {
-                "force": "collide",
-                "iterations": 2,
-                "radius": {"expr": "sqrt(datum.size)/2"}
-              },
-              {"force": "center", "x": {"signal": "cx"}, "y": {"signal": "cy"}},
-              {"force": "x", "x": "xfocus", "strength": {"signal": "gravityX"}},
-              {"force": "y", "y": "yfocus", "strength": {"signal": "gravityY"}}
-            ]
-          }
-        ]
-      },
-      {
-        "type": "text",
-        "from": {"data": "nodes"},
-        "encode": {
-          "enter": {
-            "align": {"value": "center"},
-            "baseline": {"value": "middle"},
-            "fontSize": {"value": 12},
-            "fontWeight": {"value": "bold"},
-            "fill": {"value": "black"},
-            "text": {"field": "datum.Type"}
-          },
-          "update": {"x": {"field": "x"}, "y": {"field": "y"}}
+        {
+          "type": "filter",
+          "expr": "datum.Year == year"
         }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "size",
+      "domain": {"data": "table", "field": "amount"},
+      "range": [500, 25000]
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {"data": "table", "field": "Type"},
+      "range": ["#fff9b0", "#fff176", "#ffeb3b", "#fdd835", "#fbc02d", "#f9a825", "#f57f17", "#f57f17", "#f57f17", "#f57f17"] 
+    }
+  ],
+  "marks": [
+    {
+      "name": "nodes",
+      "type": "symbol",
+      "from": {"data": "table"},
+      "encode": {
+        "enter": {
+          "fill": {"scale": "color", "field": "Type"}, 
+          "xfocus": {"signal": "cx"},
+          "yfocus": {"signal": "cy"}
+        },
+        "update": {
+          "size": {"signal": "datum.amount", "scale": "size"},
+          "stroke": {"value": "white"},
+          "strokeWidth": {"value": 1},
+          "tooltip": {
+            "signal": "{'Type': datum.Type, 'Value': format(datum.amount, '.2f')}"
+          }
+        }
+      },
+      "transform": [
+        {
+          "type": "force",
+          "iterations": 100,
+          "static": false,
+          "forces": [
+            {
+              "force": "collide",
+              "iterations": 2,
+              "radius": {"expr": "sqrt(datum.size)/2"}
+            },
+            {"force": "center", "x": {"signal": "cx"}, "y": {"signal": "cy"}},
+            {"force": "x", "x": "xfocus", "strength": {"signal": "gravityX"}},
+            {"force": "y", "y": "yfocus", "strength": {"signal": "gravityY"}}
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "from": {"data": "nodes"},
+      "encode": {
+        "enter": {
+          "align": {"value": "center"},
+          "baseline": {"value": "middle"},
+          "fontSize": {"value": 12},
+          "fontWeight": {"value": "bold"},
+          "fill": {"value": "black"},
+          "text": {"field": "datum.Type"}
+        },
+        "update": {"x": {"field": "x"}, "y": {"field": "y"}}
       }
-    ]
-  }
-  
+    }
+  ]
+}

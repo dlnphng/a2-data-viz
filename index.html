@@ -56,16 +56,16 @@
     </div>
     <section id="exp-dms">
         <div class="content-row-2">
-            <p> Australia's mining sector has seen a big expansion, fueled primarily by exports. 
-                <br>Internal market: There's consistent rise in domestic consumption.
-                    The growth is gradual but persistent, showing the solid domestic base 
-                    that supports the mining industry.
-                <br>Export market: There's increase in the international demand for Australian minerals. 
-                    The rising trend shows Australia's growing influence in the global mining market, 
-                    with a record high in 2022.</p>
-            <div id="export-domestic"></div>
+          <p> 
+            Australia's mining sector has seen a big expansion, fueled primarily by exports.
+            <br><span>Internal market:</span> There's consistent rise in domestic consumption, showing the solid domestic base 
+                that supports the mining industry.
+            <br><span>Export market:</span> The rising trend shows Australia's growing influence in the global mining market, 
+                with a record high in 2022.
+          </p>
+          <div id="export-domestic"></div>
         </div>
-    </section>    
+      </section> 
 
     <section>
         <h2>#3: State Contributions: Which Regions Drive Mining?</h2>
@@ -131,21 +131,6 @@
         vegaEmbed('#style', spec1, {renderer: "svg", actions: false}).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
-
-        // var spec3 = "js/dual_axis.vg.json";
-        // vegaEmbed('#dual', spec3).then(function (result) {
-        //     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        // }).catch(console.error);
-
-        // var spec4 = "js/tree_map.vg.json";
-        // vegaEmbed('#energy', spec4).then(function (result) {
-        //     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        // }).catch(console.error);
-
-        // var spec5 = "js/state_map.vg.json";
-        // vegaEmbed('#state_map', spec5).then(function (result) {
-        //     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        // }).catch(console.error);
 
         var spec6 = "js/top_country.vg.json";
         vegaEmbed('#top_country', spec6, { actions: false }).then(function (result) {
