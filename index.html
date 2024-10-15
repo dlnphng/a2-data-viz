@@ -70,20 +70,21 @@
       </section> 
 
     <section>
-        <h2>#3: State Contributions: Which Regions Drive Mining?</h2>
+        <h2 style="font-size: 22px;">#3: State Contribution: Which One Drive Mining?</h2>
         <div class="content-row-3">
             <div>
                 <div id="state_map"></div>
                 <p>This map illustrates the contributions of states to the country's mining exploration activities.
-                   <br> WA stands out as the dominant contributor, having the largest share to national mining exploration. 
-                    <br> Other states like QA and SA also make significant contributions, though on a smaller scale.
+                   <br> <span style="color: white; font-size: 25px;">WA</span> stands out as the <span style="color: white; font-size: 25px;">#1 contributor</span>, 
+                   having the largest share to national exploration. 
+                    <br> <span style="color: white; font-size: 25px;">QLD and SA</span> also make significant contributions, though on a smaller scale.
                 </p>
                 </div>
             <div class="state-div">
                 <div id="state"></div>
                 <p>This chart tracks mining exploration amounts in different Australian states across 2013, 2017, and 2022. 
-                    <br>WA again leads the way, showing a consistent increase in exploration funding. 
-                    <br>States like QLD and NSW also display significant growth over 10 years. </p>
+                    <br><span style="color: white; font-size: 25px;">WA leads the growth</span>, showing a consistent increase in exploration funding. 
+                    <br><span style="color: white; font-size: 25px;">QLD and NSW</span> also display <span style="color: white; font-size: 25px;">significant growth</span> over 10 years. </p>
             </div>
         </div>
         
@@ -112,7 +113,7 @@
                <br><span style="color: white; font-size: 25px;">Petrol gas, coal, and iron </span> dominate as the <span style="color: white; font-size: 25px;">most valuable resources</span>, 
                representing a major portion of the country's mining output. 
                 <br>The relative size of each circle emphasizes the economic importance of these minerals, 
-                with petrol gas, coal, and iron at the forefront of driving Australia's mining economy.
+                with <span style="color: white; font-size: 25px;">petrol gas, coal, and iron at the front</span> of driving Australia's mining economy.
             </p>
             <div id="mineral"></div>
         </div>
@@ -144,11 +145,6 @@
         vegaEmbed('#export-domestic', spec7, { actions: false }).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
-
-        // var spec8 = "js/state.vg.json";
-        // vegaEmbed('#state', spec8).then(function (result) {
-        //     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        // }).catch(console.error);
 
         var spec9 = "js/mineral.vg.json";
         vegaEmbed('#mineral', spec9, { actions: false }).then(function (result) {
