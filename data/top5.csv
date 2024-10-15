@@ -1,8 +1,8 @@
 ﻿Country,Total,Flag,Percentage,Year
-US,46.36,https://cdn-icons-png.flaticon.com/512/197/197484.png,9.17,2018
-US,45.8,https://cdn-icons-png.flaticon.com/512/197/197484.png,17.66,2019
-US,64.07,https://cdn-icons-png.flaticon.com/512/197/197484.png,22.89,2020
-US,63.51,https://cdn-icons-png.flaticon.com/512/197/197484.png,8.25,2021
+America,46.36,https://cdn-icons-png.flaticon.com/512/197/197484.png,9.17,2018
+America,45.8,https://cdn-icons-png.flaticon.com/512/197/197484.png,17.66,2019
+America,64.07,https://cdn-icons-png.flaticon.com/512/197/197484.png,22.89,2020
+America,63.51,https://cdn-icons-png.flaticon.com/512/197/197484.png,8.25,2021
 Australia,130.93,https://cdn-icons-png.flaticon.com/512/197/197507.png,29.48,2022
 Australia,93.48,https://cdn-icons-png.flaticon.com/512/197/197507.png,18.48,2018
 Australia,102.08,https://cdn-icons-png.flaticon.com/512/197/197507.png,39.35,2019
@@ -24,8 +24,8 @@ Germany,38.11,https://cdn-icons-png.flaticon.com/512/197/197571.png,7.54,2018
 Germany,39.16,https://cdn-icons-png.flaticon.com/512/197/197571.png,15.10,2019
 Germany,55.25,https://cdn-icons-png.flaticon.com/512/197/197571.png,19.74,2020
 Germany,53.73,https://cdn-icons-png.flaticon.com/512/197/197571.png,6.98,2021
-The Other,151.2,,34.04,2022
-The Other,114.32,,22.60,2018
-The Other,117.45,,45.28,2019
-The Other,174.58,,62.36,2020
-The Other,158.57,,20.60,2021
+Other,151.2,,34.04,2022
+Other,114.32,,22.60,2018
+Other,117.45,,45.28,2019
+Other,174.58,,62.36,2020
+Other,158.57,,20.60,2021

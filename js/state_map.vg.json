@@ -1,10 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 500,
+  "width": 420,
   "height": 400,
   "background": "rgba(0, 0, 0, 0)",
   "title": {
-    "text": "Total Values by State in Australia",
+    "text": "Mining Exploration by State (million $)",
     "anchor": "middle",
     "dy": -10,
     "font": "Outfit"
@@ -72,7 +72,7 @@
             "size": {
               "field": "Total",
               "type": "quantitative",
-              "scale": { "range": [100, 10000] },
+              "scale": { "range": [100, 5000] },
               "legend": {
                 "title": "Total Value",
                 "orient": "right"

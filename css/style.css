@@ -116,12 +116,63 @@ p{
 	background-color: #555; /* Add a dark-grey background on hover */
   }
 
-  label[for="yearSlider"] {
-    color: red; /* Change the color to your desired value */
-  }
+.content-row {
+    display: flex;
+    justify-content: space-between; /* Adjust space between the div and paragraph */
+}
 
-  input[type="range"] {
-    color: white;  /* This would change the color of the slider itself */
-  }
+.content-row p {
+	line-height: 1.7em;
+	margin:0;
+	color:wheat;
+    width: 40%; /* Set the width for the paragraph */
+    margin-left: 20px; /* Optional: Add margin to create space between the div and the paragraph */
+}
+.right-align {
+    text-align: right; /* Right align the h2 element */
+}
 
+.content-row-2 {
+	margin-bottom:20px;
+    display: flex;
+    justify-content: flex-end; /* Align the div and p on the right */
+    align-items: center; /* Vertically center the div and paragraph */
+}
 
+#export-domestic {
+	margin: 0;
+	
+}
+
+.content-row-2 p {
+    margin: 0; 
+	line-height: 1.7em;
+	margin-right: 2%;
+	color: wheat;
+}
+
+#align-right {
+	text-align: right;
+	margin: 1%;
+}
+
+.content-row-3 {
+	color: white;
+    display: flex;          /* Use flexbox to align items in a row */
+    justify-content: space-between; /* Optional: Adds space between the two divs */
+    align-items: center;    /* Vertically aligns items in the center */
+}
+
+label {
+	text-align: center;
+}
+
+.double-filter{
+	color: white;
+	display: flex;
+	justify-content: center;
+}
+
+.state-div{
+	margin-left: 30px;
+}

@@ -43,46 +43,75 @@
     </div>
     <section>
         <h2 id="dominance">#1: Australia Leads the World in Mining Revenue</h2>
-        <br><div id="top_country"></div>
-    </section>
-
-    <section id="exp-dms">
-        <h2>#2: Mining Growth: Exports Fuel Australia’s Economy</h2>
-        <br><div id="export-domestic"></div>
-        <p>Over the past decade, Australia's mining sector has seen a big expansion, 
-            fueled primarily by exports. 
-            This chart captures the significant economic contribution of mining exports alongside steady domestic consumption, 
-            emphasizing the important role of this sector in Australia's economic growth, especially peaking in 2022. </p>
-        <p>Internal market: There's consistent rise in domestic consumption of mining products. 
-            The growth is gradual but persistent, underlining the solid domestic base that supports the mining industry.</p>
-        <p>Export market: There's increase in the international demand for Australian minerals. 
-            The rising trend underscores Australia's growing influence in the global mining market, 
-            with a record high in 2022.</p>
-    </section>
-
-    <section>
-        <h2>#3: State Contributions: Which Regions Drive Mining?</h2>
-        <div>
-        <div id="state_map"></div>
-        <div id="state"></div>
-            <!-- Filter Dropdown -->
-            <label for="regionFilter">Filter by Region:</label>
-            <select id="regionFilter">
-                <option value="All">All</option>
-                <option value="NSW">NSW</option>
-                <option value="VIC">VIC</option>
-                <option value="QLD">QLD</option>
-                <option value="SA">SA</option>
-                <option value="WA">WA</option>
-                <option value="TAS">TAS</option>
-                <option value="Northern Territory">Northern Territory</option>
-            </select>
+        <br><div class="content-row">
+            <div id="top_country"></div>
+            <p>Australia has maintained its long-standing position as the global leader in mining revenue, consistently surpassing other major mining nations. 
+            <br>This leadership shows Australia's dominance in the mining sector, rooted in its extensive mineral wealth and robust industry practices.
+            <br>As a pivotal player on the international stage, Australia continues to drive significant economic growth through its mining exports.</p>
         </div>
     </section>
 
+    <div id="align-right">
+        <h2>#2: Mining Growth: Exports Fuel Australia’s Economy</h2>
+    </div>
+    <section id="exp-dms">
+        <div class="content-row-2">
+            <p> Australia's mining sector has seen a big expansion, fueled primarily by exports. 
+                <br>Internal market: There's consistent rise in domestic consumption.
+                    The growth is gradual but persistent, showing the solid domestic base 
+                    that supports the mining industry.
+                <br>Export market: There's increase in the international demand for Australian minerals. 
+                    The rising trend shows Australia's growing influence in the global mining market, 
+                    with a record high in 2022.</p>
+            <div id="export-domestic"></div>
+        </div>
+    </section>    
+
     <section>
-        <h2 id="minerals">#4: What Minerals Matter Most to Australia?</h2>
-        <br><div id="mineral"></div>
+        <h2>#3: State Contributions: Which Regions Drive Mining?</h2>
+        <div class="content-row-3">
+            <div>
+                <div id="state_map"></div>
+                <p>This map illustrates the contributions of states to the country's mining exploration activities.
+                    WA stands out as the dominant contributor, having the largest share to national mining exploration. 
+                    Other states like QA and SA also make significant contributions, though on a smaller scale.
+                </p>
+                </div>
+            <div class="state-div">
+                <div id="state"></div>
+                <p>This chart tracks mining exploration amounts in different Australian states across 2013, 2017, and 2022. 
+                    WA again leads the way, showing a consistent increase in exploration funding. 
+                    States like QLD and NSW also display significant growth over 10 years. </p>
+            </div>
+        </div>
+        <div class="double-filter">
+                <!-- Filter Dropdown -->
+                <label for="regionFilter">Filter both chart:</label>
+                <select id="regionFilter">
+                    <option value="All">All</option>
+                    <option value="NSW">NSW</option>
+                    <option value="VIC">VIC</option>
+                    <option value="QLD">QLD</option>
+                    <option value="SA">SA</option>
+                    <option value="WA">WA</option>
+                    <option value="TAS">TAS</option>
+                    <option value="Northern Territory">Northern Territory</option>
+                </select>
+            </div>
+    </section>
+
+    <section>
+        <div id="align-right">
+            <h2>#4: What Minerals Matter Most to Australia?</h2>
+        </div>
+        <div class="content-row-2">
+            <p>This chart presents a snapshot of the minerals that hold the most significance to Australia's mining industry. 
+               <br>Petrol gas, coal, and iron clearly dominate as the most valuable resources, representing a major portion of the country's mining output. 
+                <br>The relative size of each circle emphasizes the economic importance of these minerals, 
+                with petrol gas, coal, and iron at the forefront of driving Australia's mining economy.
+            </p>
+            <div id="mineral"></div>
+        </div>
     </section>
 
     <button onclick="topFunction()" id="myBtn" title="Go to top">↑</button>
@@ -129,35 +158,34 @@
         // }).catch(console.error);
 
         var spec9 = "js/mineral.vg.json";
-        vegaEmbed('#mineral', spec9).then(function (result) {
+        vegaEmbed('#mineral', spec9, { actions: false }).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
 
-            // Function to update both Vega charts
-        function updateVegaWithFilter(filterValue) {
-            const specStateMap = "js/state_map.vg.json";
-            const specState = "js/state.vg.json";
+    // Function to update both Vega charts
+function updateVegaWithFilter(filterValue) {
+    const specStateMap = "js/state_map.vg.json";
+    const specState = "js/state.vg.json";
 
-            // Load state map visualization and apply filter
-            vegaEmbed('#state_map', specStateMap, { renderer: "svg" }).then(function(result) {
-                result.view.signal("regionFilter", filterValue).run();
-            }).catch(console.error);
+    // Load state map visualization and apply filter
+    vegaEmbed('#state_map', specStateMap, { renderer: "svg", actions: false }).then(function(result) {
+        result.view.signal("regionFilter", filterValue).run();
+    }).catch(console.error);
 
-            // Load state visualization and apply filter
-            vegaEmbed('#state', specState, { renderer: "svg" }).then(function(result) {
-                result.view.signal("regionFilter", filterValue).run();
-            }).catch(console.error);
-        }
+    // Load state visualization and apply filter
+    vegaEmbed('#state', specState, { renderer: "svg", actions: false }).then(function(result) {
+        result.view.signal("regionFilter", filterValue).run();
+    }).catch(console.error);
+}
 
-        // Add event listener to dropdown
-        document.getElementById('regionFilter').addEventListener('change', function(event) {
-            const selectedRegion = event.target.value;
-            updateVegaWithFilter(selectedRegion);
-        });
+// Add event listener to dropdown
+document.getElementById('regionFilter').addEventListener('change', function(event) {
+    const selectedRegion = event.target.value;
+    updateVegaWithFilter(selectedRegion);
+});
 
-        // Initial load of both charts with 'All' selected by default
-        updateVegaWithFilter('All');
-
+// Initial load of both charts with 'All' selected by default
+updateVegaWithFilter('All');
 
         // Get the button:
         let mybutton = document.getElementById("myBtn");
