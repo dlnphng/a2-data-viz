@@ -102,7 +102,29 @@
       "encoding": {
         "x": {"datum": "2014"},
         "y": {"datum": 160},
-        "text": {"value": "Decrease in gloabaldemand"}
+        "text": {"value": "Decrease in export demand"}
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "typeFilter === 'All'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -5,
+        "dy": -10,
+        "color": "red",
+        "font": "Outfit",
+        "fontSize": 12
+      },
+      "encoding": {
+        "x": {"datum": "2022"},
+        "y": {"datum": 600},
+        "text": {"value": "New peak in 2022"}
       }
     }
   ]

@@ -165,7 +165,7 @@ p {
   color: wheat;
 }
 
-.content-row-2 p br + span {
+.content-row-2 p span {
 	font-size: 23px; /* Sets the font size to 22px */
 	color: white; /* Sets the color to white */
   }
@@ -180,6 +180,7 @@ p {
   display: flex; /* Use flexbox to align items in a row */
   justify-content: space-between; /* Optional: Adds space between the two divs */
   align-items: center; /* Vertically aligns items in the center */
+  text-align: center;
 }
 
 label {
@@ -197,6 +198,7 @@ label {
 }
 
 #credit {
+	margin-top: 7%;
   margin-bottom: 5%;
 }
 
@@ -220,7 +222,11 @@ label {
 
 .content-row-4 p {
 	margin: 0;
+	margin-right: 7%;
 	line-height: 2em;
 	color: wheat;
 }
 
+#mineral{
+	color: white;
+}
