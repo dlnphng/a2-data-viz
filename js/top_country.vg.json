@@ -19,7 +19,7 @@
         "min": 2018,
         "max": 2022,
         "step": 1,
-        "name": "Year"
+        "name": "Year "
       }
     }
   ],
@@ -39,13 +39,22 @@
         "x": {
           "field": "Total",
           "type": "quantitative",
-          "axis": {"title": "Total Revenue (million $)"}
+          "axis": {"title": "Total Revenue (million $)",
+          "titleColor":"white",
+          "titleFontSize": 15,
+          "titleFont": "Outfit",
+          "labelColor": "white",
+          "labelFont": "Outfit",
+          "labelFontSize": 12}
         },
         "y": {
           "field": "Country",
           "type": "nominal",
           "sort": {"field": "Total", "order": "descending"},
-          "axis": {"title": null}
+          "axis": {"title": null,
+          "labelColor": "white",
+          "labelFont": "Outfit",
+          "labelFontSize": 15}
         },
         "color": {
           "condition": {

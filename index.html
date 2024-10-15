@@ -42,6 +42,13 @@
         </p>
     </div>
     <section>
+        <h2 id="dominance">#1: Australia Leads the World in Mining Revenue</h2>
+        <br><div id="top_country"></div>
+    </section>
+
+    <section id="exp-dms">
+        <h2>#2: Mining Growth: Exports Fuel Australia’s Economy</h2>
+        <br><div id="export-domestic"></div>
         <p>Over the past decade, Australia's mining sector has seen a big expansion, 
             fueled primarily by exports. 
             This chart captures the significant economic contribution of mining exports alongside steady domestic consumption, 
@@ -51,14 +58,6 @@
         <p>Export market: There's increase in the international demand for Australian minerals. 
             The rising trend underscores Australia's growing influence in the global mining market, 
             with a record high in 2022.</p>
-        
-        <h2 id="dominance">#1: Australia Leads the World in Mining Revenue</h2>
-        <br><div id="top_country"></div>
-    </section>
-
-    <section id="exp-dms">
-        <h2>#2: Mining Growth: Exports Fuel Australia’s Economy</h2>
-        <br><div id="export-domestic"></div>
     </section>
 
     <section>
@@ -94,20 +93,20 @@
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
 
-        var spec2 = "js/stacked_area.vg.json";
-        vegaEmbed('#styling', spec2).then(function (result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
+        // var spec2 = "js/stacked_area.vg.json";
+        // vegaEmbed('#styling', spec2).then(function (result) {
+        //     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        // }).catch(console.error);
 
-        var spec3 = "js/dual_axis.vg.json";
-        vegaEmbed('#dual', spec3).then(function (result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
+        // var spec3 = "js/dual_axis.vg.json";
+        // vegaEmbed('#dual', spec3).then(function (result) {
+        //     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        // }).catch(console.error);
 
-        var spec4 = "js/tree_map.vg.json";
-        vegaEmbed('#energy', spec4).then(function (result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
+        // var spec4 = "js/tree_map.vg.json";
+        // vegaEmbed('#energy', spec4).then(function (result) {
+        //     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        // }).catch(console.error);
 
         // var spec5 = "js/state_map.vg.json";
         // vegaEmbed('#state_map', spec5).then(function (result) {
@@ -115,12 +114,12 @@
         // }).catch(console.error);
 
         var spec6 = "js/top_country.vg.json";
-        vegaEmbed('#top_country', spec6).then(function (result) {
+        vegaEmbed('#top_country', spec6, { actions: false }).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
 
         var spec7 = "js/export-domestic.vg.json";
-        vegaEmbed('#export-domestic', spec7).then(function (result) {
+        vegaEmbed('#export-domestic', spec7, { actions: false }).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
 

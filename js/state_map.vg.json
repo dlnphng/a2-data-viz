@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 600,
+  "width": 500,
   "height": 400,
-  "background": "#f4f4f4",
+  "background": "rgba(0, 0, 0, 0)",
   "title": {
     "text": "Total Values by State in Australia",
     "anchor": "middle",
@@ -62,7 +62,7 @@
         {
           "mark": {
             "type": "circle",
-            "color": "red",
+            "color": "#fff9b0",
             "opacity": 0.7,
             "tooltip": {"content": "data"}
           },
