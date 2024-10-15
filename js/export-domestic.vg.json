@@ -48,7 +48,7 @@
         "type": "nominal",
         "scale": {
           "domain": ["Domestic consumption", "Total export"],
-          "range": ["#808080", "#FF6347"] 
+          "range": ["#808080", "#fff9b0"] 
         },
         "legend": {"title": "Type"}
       },
