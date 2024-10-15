@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 370,
+    "width": 400,
     "height": 400,
     "background": "rgba(0, 0, 0, 0)",
     "data": {
@@ -45,14 +45,23 @@
             "type": "nominal",
             "axis": {
               "labelAngle": 0,
-              "labelAlign": "center"
+              "labelAlign": "center",
+              "labelColor": "white",
+              "labelFont": "Outfit",
+              "labelFontSize": 10,
+              "title": null
             }
           },
           "y": {
             "field": "Total",
             "type": "quantitative",
             "axis": {
-              "title": "Exploration Amount ($ million)"  
+              "title": "Exploration Amount ($ million)",
+              "titleColor":"white",
+              "titleFont": "Outfit",
+              "labelColor": "white",
+              "labelFont": "Outfit",
+              "labelFontSize":12
             }
           },
           "color": {
@@ -62,7 +71,12 @@
               "domain": [2022, 2017, 2013],
               "range": ["#fff9b0", "grey", "lightyellow"]
             },
-            "legend": {"title": "Year"}
+            "legend": {"title": "Year","titleColor":"white",
+            "titleFont": "Outfit",
+            "labelColor": "white",
+              "labelFont": "Outfit",
+            "labelFontSize": 12,
+            "titleFontSize": 12 }
           },
           "tooltip": [
             {"field": "State", "type": "nominal", "title": "Region"},

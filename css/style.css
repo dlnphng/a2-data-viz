@@ -1,178 +1,221 @@
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
-body{
-	font-family: 'Outfit', sans-serif;
-	padding-right:100px;
-	padding-left:200px;
-	background: linear-gradient(to bottom, #2b2b2b, #989679);
-	align-items: center;
-}
-
-h1{
-	text-align: center;
-	color: #2F4F4F;
-	font-size: 40px;
+body {
+  font-family: "Outfit", sans-serif;
+  padding-right: 100px;
+  padding-left: 200px;
+  background: #2b2b2b;
+  /* background: linear-gradient(to bottom, #2b2b2b, #93906a); */
+  align-items: center;
 }
 
-h2{
-	font-family: "Special Elite", system-ui;
-	color: #000000;
-	background-color: #ffffff;
-	border-radius: 2px;
-	display: inline-block;
-	padding: 10px;
-	margin-bottom:20px;
+h1 {
+  text-align: center;
+  color: #2f4f4f;
+  font-size: 40px;
 }
 
-div .map{
-	padding-top: 10px;
-	padding-bottom: 10px;
+h2 {
+  font-family: "Special Elite", system-ui;
+  color: #000000;
+  background-color: #ffffff;
+  border-radius: 2px;
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 20px;
 }
 
-p{
-	font-size: 20px;
+div .map {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-#style, #styling, #dual, #state_map {
-	width: 100%;
-    display: block;
-    justify-content: center;
-	font-family: 'Outfit', sans-serif;
+p {
+  font-size: 20px;
+  color: wheat;
+}
+
+#style,
+#styling,
+#dual {
+  color: white;
+  width: 100%;
+  display: block;
+  justify-content: center;
+  font-family: "Outfit", sans-serif;
+}
+
+#top_country,
+#export-domestic {
+  color: white;
 }
 
 .container {
-	margin:0;
-	display: flex;
-	align-items: center;
-	letter-spacing: 5px;
-  }
+  margin: 0;
+  display: flex;
+  align-items: center;
+  letter-spacing: 5px;
+}
 
-  .container p{
-	color: white;
-	font-size: 50px;
-  }
+.container p {
+  color: white;
+  font-size: 50px;
+}
 
-  .left {
-	text-align: right;
-	padding-right:1%;
-  }
+.left {
+  text-align: right;
+  padding-right: 1%;
+}
 
-  .right {
-	text-align: left;
-  }
+.right {
+  text-align: left;
+}
 
-  .colored-text {
-	color: #ddb97f; /* Dark yellow color */
-	font-family: "Special Elite", system-ui;
-	font-size: 40px;
-  }
+.colored-text {
+  color: #ddb97f; /* Dark yellow color */
+  font-family: "Special Elite", system-ui;
+  font-size: 40px;
+}
 
-  .image {
-	margin:0;
-	margin-left:40px;
-	margin-right:40px;
-	align-items: center;
-  }
+.image {
+  margin: 0;
+  margin-left: 40px;
+  margin-right: 40px;
+  align-items: center;
+}
 
-  .image img {
-	width: 200px; /* Adjust image size as needed */
-	height: auto;
-  }
-  
-  .short-intro{
-	padding-right: 13%;
-	padding-left: 5%;
-	padding-bottom: 3%;
-	text-align: center;
-	color:#cadd7f;
-  }
+.image img {
+  width: 200px; /* Adjust image size as needed */
+  height: auto;
+}
 
-  .short-intro p{
-	font-size: 20px;
-	letter-spacing: 4px;
-  }
-  .short-intro a{
-	color:#ffffff;
-  }
+.short-intro {
+  padding-right: 13%;
+  padding-left: 5%;
+  padding-bottom: 3%;
+  text-align: center;
+  color: wheat;
+}
 
-  #myBtn {
-	display: none; /* Hidden by default */
-	position: fixed; /* Fixed/sticky position */
-	bottom: 30px; /* Place the button at the bottom of the page */
-	right: 50px; /* Place the button 30px from the right */
-	z-index: 99; /* Make sure it does not overlap */
-	border: none; /* Remove borders */
-	outline: none; /* Remove outline */
-	background-color: rgb(114, 101, 24); /* Set a background color */
-	color: white; /* Text color */
-	cursor: pointer; /* Add a mouse pointer on hover */
-	padding: 20px; /* Some padding */
-	border-radius: 10px; /* Rounded corners */
-	font-size: 20px; /* Increase font size */
-  }
-  
-  #myBtn:hover {
-	background-color: #555; /* Add a dark-grey background on hover */
-  }
+.short-intro p {
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+.short-intro a {
+  color: #ffffff;
+}
+
+.short-intro a:hover {
+  font-size: 21px;
+  color: silver;
+}
+
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 30px; /* Place the button at the bottom of the page */
+  right: 50px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: rgb(114, 101, 24); /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 20px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 20px; /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
 
 .content-row {
-    display: flex;
-    justify-content: space-between; /* Adjust space between the div and paragraph */
+  display: flex;
+  justify-content: space-between; /* Adjust space between the div and paragraph */
 }
 
 .content-row p {
-	line-height: 1.7em;
-	margin:0;
-	color:wheat;
-    width: 40%; /* Set the width for the paragraph */
-    margin-left: 20px; /* Optional: Add margin to create space between the div and the paragraph */
+  line-height: 1.7em;
+  margin: 0;
+  color: wheat;
+  width: 40%; /* Set the width for the paragraph */
+  margin-left: 20px; /* Optional: Add margin to create space between the div and the paragraph */
 }
 .right-align {
-    text-align: right; /* Right align the h2 element */
+  text-align: right; /* Right align the h2 element */
 }
 
 .content-row-2 {
-	margin-bottom:20px;
-    display: flex;
-    justify-content: flex-end; /* Align the div and p on the right */
-    align-items: center; /* Vertically center the div and paragraph */
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end; /* Align the div and p on the right */
+  align-items: center; /* Vertically center the div and paragraph */
 }
 
 #export-domestic {
-	margin: 0;
-	
+  margin: 0;
 }
 
 .content-row-2 p {
-    margin: 0; 
-	line-height: 1.7em;
-	margin-right: 2%;
-	color: wheat;
+  margin: 0;
+  line-height: 1.7em;
+  margin-right: 2%;
+  color: wheat;
 }
 
 #align-right {
-	text-align: right;
-	margin: 1%;
+  text-align: right;
+  margin: 1%;
 }
 
 .content-row-3 {
-	color: white;
-    display: flex;          /* Use flexbox to align items in a row */
-    justify-content: space-between; /* Optional: Adds space between the two divs */
-    align-items: center;    /* Vertically aligns items in the center */
+  color: white;
+  display: flex; /* Use flexbox to align items in a row */
+  justify-content: space-between; /* Optional: Adds space between the two divs */
+  align-items: center; /* Vertically aligns items in the center */
 }
 
 label {
-	text-align: center;
+  text-align: center;
 }
 
-.double-filter{
-	color: white;
+.double-filter {
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.state-div {
+  margin-left: 30px;
+}
+
+#credit {
+  margin-bottom: 5%;
+}
+
+#credit p {
+  color: wheat;
+}
+
+#credit a {
+  color: white;
+}
+
+#credit a:hover {
+  font-size: 21px;
+  color: silver;
+}
+
+/* Section 4 */
+.content-row-4 {
 	display: flex;
-	justify-content: center;
 }
 
-.state-div{
-	margin-left: 30px;
+.content-row-4 p {
+	margin: 0;
+	line-height: 2em;
+	color: wheat;
 }
+

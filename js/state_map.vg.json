@@ -7,7 +7,8 @@
     "text": "Mining Exploration by State (million $)",
     "anchor": "middle",
     "dy": -10,
-    "font": "Outfit"
+    "font": "Outfit",
+    "color": "white"
   },
   "params": [
     {
@@ -74,13 +75,17 @@
               "type": "quantitative",
               "scale": { "range": [100, 5000] },
               "legend": {
-                "title": "Total Value",
-                "orient": "right"
+                "title": "Total Value (million $)",
+                "orient": "right",
+                "labelColor": "white",
+                "titleColor": "white",
+                "labelFont": "Outfit",
+                "titleFont": "Outfit"
               }
             },
             "tooltip": [
               { "field": "Region", "type": "nominal", "title": "State" },
-              { "field": "Total", "type": "quantitative", "title": "Total Value" }
+              { "field": "Total", "type": "quantitative", "title": "Total Value (million $)" }
             ]
           }
         },
