@@ -29,7 +29,7 @@
       {
         "mark": {
           "type": "rule", 
-          "color": "white"
+          "color": "yellow"
         },
         "encoding": {
           "x": {"field": "State", "type": "nominal"},

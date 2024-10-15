@@ -1,4 +1,3 @@
-
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 535,
@@ -39,22 +38,29 @@
         "x": {
           "field": "Total",
           "type": "quantitative",
-          "axis": {"title": "Total Revenue (million $)",
-          "titleColor":"white",
-          "titleFontSize": 15,
-          "titleFont": "Outfit",
-          "labelColor": "white",
-          "labelFont": "Outfit",
-          "labelFontSize": 12}
+          "axis": {
+            "title": "Total Revenue (million $)",
+            "titleColor": "white",
+            "titleFontSize": 15,
+            "titleFont": "Outfit",
+            "labelColor": "white",
+            "labelFont": "Outfit",
+            "labelFontSize": 12
+          }
         },
         "y": {
           "field": "Country",
           "type": "nominal",
-          "sort": {"field": "Total", "order": "descending"},
-          "axis": {"title": null,
-          "labelColor": "white",
-          "labelFont": "Outfit",
-          "labelFontSize": 15}
+          "sort": {
+            "field": "Total",
+            "order": "descending"
+          },
+          "axis": {
+            "title": null,
+            "labelColor": "white",
+            "labelFont": "Outfit",
+            "labelFontSize": 15
+          }
         },
         "color": {
           "condition": {
@@ -71,7 +77,13 @@
       }
     },
     {
-      "mark": {"type": "image", "width": 30, "height": 30, "align": "center", "baseline": "middle"},
+      "mark": {
+        "type": "image",
+        "width": 30,
+        "height": 30,
+        "align": "center",
+        "baseline": "middle"
+      },
       "encoding": {
         "x": {
           "field": "Total",
@@ -80,7 +92,10 @@
         "y": {
           "field": "Country",
           "type": "nominal",
-          "sort": {"field": "Country", "order": "descending"}
+          "sort": {
+            "field": "Country",
+            "order": "descending"
+          }
         },
         "url": {"field": "Flag"},
         "tooltip": [
@@ -88,6 +103,28 @@
           {"field": "Total", "type": "quantitative", "title": "Total Revenue (million $)"},
           {"field": "Percentage", "type": "quantitative", "title": "% of Total Minerals Revenue"}
         ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.Country === 'Australia'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -20,
+        "dy": 0,
+        "color": "black",
+        "font": "Outfit",
+        "fontSize": 12
+      },
+      "encoding": {
+        "x": {"field": "Total", "type": "quantitative"},
+        "y": {"field": "Country", "type": "nominal"},
+        "text": {"value": "#1 country in mining revenue"}
       }
     }
   ]
